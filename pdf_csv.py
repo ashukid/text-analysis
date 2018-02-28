@@ -25,5 +25,5 @@ for i in range(len(sents)):
 	sents[i] = sents[i].encode('utf-8')
 
 test = pd.DataFrame()
-test['sentence'] = sents
+test['Statment'] = sents
 test.to_csv("test.csv",index_label=False)
