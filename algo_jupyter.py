@@ -62,5 +62,6 @@ prediction = eq.predict(test_tfidf_array)
 output = pd.DataFrame()
 output["Statment"] = test["Statment"]
 output["condition"] = prediction
-output['condition'].value_counts()
+# print(output['condition'].value_counts())
+print(output.head())
 
