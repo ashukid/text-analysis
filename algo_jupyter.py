@@ -49,7 +49,7 @@ x_test = data_preprocessing(test)
 
 vectorizer=TfidfVectorizer(stop_words='english')
 train_tfidf=vectorizer.fit_transform(x_train)
-train_tfidf=tfidf.toarray()
+train_tfidf=train_tfidf.toarray()
 clf=RandomForestClassifier(max_depth=20,random_state=80)
 eq=clf.fit(train_tfidf,y_train)
 
