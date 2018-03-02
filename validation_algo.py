@@ -12,6 +12,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import log_loss
+from sklearn.model_selection import cross_val_score
 
 import re
 
@@ -59,11 +60,17 @@ clf_dt=DecisionTreeClassifier()
 clf_dt.fit(train_tfidf_array,y)
 prediction_dt = clf_dt.predict(test_tfidf_array)
 
+# cross validation
+# cv = number of folds
+score = cross_val_score(clf_dt,train_tfidf_array,y,cv=5)
+
 
 accuracy = clf_dt.score(test_tfidf_array,yy)
 loss = log_loss(yy, prediction_dt)
-
+cm = confusion_matrix(yy, prediction_dt)
 
 print("Accuracy : {}".format(accuracy*100))
 print("Loss : {}".format(loss))
+print("confusion matrix : {}".format(cm))
+print("Cross Validation Score : {}".format(score))
 
